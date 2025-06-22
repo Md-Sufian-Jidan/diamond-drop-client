@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}", // Adjust if needed
+    "./src/**/*.{js,ts,jsx,tsx}",
     "./public/index.html",
   ],
   theme: {
@@ -9,22 +9,28 @@ module.exports = {
       colors: {
         // Primary theme colors
         crystal: {
-          DEFAULT: '#A7F3F3', // Light cyan
+          DEFAULT: '#A7F3F3',
           dark: '#22D3EE',
         },
         royal: {
-          DEFAULT: '#3B82F6', // Royal blue
+          DEFAULT: '#3B82F6',
           dark: '#1D4ED8',
         },
         gold: {
-          DEFAULT: '#FFD700', // Gold accent
+          DEFAULT: '#FFD700',
           light: '#FFF8DC',
         },
         // Neutrals for elegance
-        background: '#F9FAFB', // Light background
+        background: '#F9FAFB',
         card: '#FFFFFF',
         border: '#E5E7EB',
         text: '#1F2937',
+      },
+      text: {
+        DEFAULT: '#1F2937',
+        light: '#6B7280',
+        heading: '#111827',
+        white: '#FFFFFF',
       },
       fontFamily: {
         sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
