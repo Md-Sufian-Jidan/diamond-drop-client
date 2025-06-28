@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden text-white px-6">
+        <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden text-white px-6 py-10">
             {/* 🔮 Animated Particles */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <motion.div
@@ -38,20 +38,12 @@ const Hero = () => {
                     animate={{ scale: [0.9, 1, 0.95] }}
                     transition={{ duration: 4, repeat: Infinity }}
                 />
-
-                <h1 className="text-4xl md:text-6xl font-extrabold text-gold mb-4">
-                    Top-Up Free Fire Diamonds Instantly
-                </h1>
-                <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-xl mx-auto">
-                    Fast. Secure. Trusted by gamers. Power up your game with DiamondDrop.
-                </p>
-
+                <h1 className="text-4xl md:text-6xl font-extrabold text-gold mb-4">Top-Up Free Fire Diamonds Instantly</h1>
+                <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-xl mx-auto">Fast. Secure. Trusted by gamers. Power up your game with DiamondDrop.</p>
                 <Link
-                    to="/topup"
-                    className="inline-block bg-royal hover:bg-royal-dark text-white px-6 py-3 rounded-xl shadow-xl transition"
-                >
-                    Get Started
-                </Link>
+                    to="/top-up"
+                    className="mt-auto w-full bg-royal DEFAULT hover:bg-royal-dark text-card font-semibold py-2 px-4 rounded-xl shadow-gold transition-colors"
+                >Get Started</Link>
             </motion.div>
         </div>
     );

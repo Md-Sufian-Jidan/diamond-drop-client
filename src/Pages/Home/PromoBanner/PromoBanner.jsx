@@ -32,7 +32,7 @@ const PromoBanner = ({ message = "🎉 Get 10% bonus on first top-up!", countdow
     if (!visible) return null;
 
     return (
-        <div className="sticky top-0 z-50 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-black font-semibold flex items-center justify-between px-6 py-3 shadow-lg select-none">
+        <div className="sticky top-0 z-40 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-black font-semibold flex items-center justify-between px-6 py-3 shadow-lg select-none">
             <div className="flex items-center gap-3">
                 <span className="text-2xl">{message}</span>
 

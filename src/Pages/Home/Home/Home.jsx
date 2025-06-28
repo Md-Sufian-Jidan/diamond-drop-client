@@ -15,6 +15,7 @@ const Home = () => {
 
     return (
         <>
+            <PromoBanner countdownEnd={countdownEnd} message={"🎉 Get 10% bonus on first top-up!"} />
             <Hero />
             <DiamondPackages />
             <WhyChooseUs />
@@ -23,7 +24,6 @@ const Home = () => {
             <ProofGallery />
             <Faq />
             <Contact />
-            <PromoBanner countdownEnd={countdownEnd} message={"🎉 Get 10% bonus on first top-up!"} />
             <TrustedByGamers />
         </>
     );

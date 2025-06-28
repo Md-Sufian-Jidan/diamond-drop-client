@@ -26,10 +26,12 @@ const steps = [
 
 const HowItWorks = () => {
     return (
-        <section className="py-20 px-4 bg-transparent text-white">
+        <section className="py-10 px-6 bg-background text-text">
             <div className="max-w-6xl mx-auto text-center">
-                <h2 className="text-4xl font-bold text-gold mb-4">How It Works</h2>
-                <p className="text-gray-300 mb-12">
+                <h2 className="text-4xl font-heading font-bold text-gold DEFAULT mb-4">
+                    How It Works
+                </h2>
+                <p className="text-crystal mb-12">
                     It's simple, fast, and secure to top-up your Free Fire diamonds with DiamondDrop.
                 </p>
 
@@ -41,11 +43,11 @@ const HowItWorks = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="bg-white/10 border border-white/20 backdrop-blur-xl rounded-2xl p-6 text-left shadow-lg hover:scale-105 transition duration-300"
+                            className="bg-card bg-opacity-20 border border-border backdrop-blur-xl rounded-2xl p-6 text-left shadow-soft hover:scale-105 transition-transform duration-300"
                         >
-                            <div className="mb-4">{step.icon}</div>
-                            <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                            <p className="text-sm text-gray-300">{step.desc}</p>
+                            <div className="mb-4 text-royal DEFAULT text-4xl">{step.icon}</div>
+                            <h3 className="text-xl font-semibold text-text mb-2">{step.title}</h3>
+                            <p className="text-crystal text-sm">{step.desc}</p>
                         </motion.div>
                     ))}
                 </div>

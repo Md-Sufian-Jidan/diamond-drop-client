@@ -39,14 +39,11 @@ const reviews = [
 
 const CustomerReviews = () => {
     return (
-        <section className="py-20 px-4 bg-transparent text-white max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-gold mb-4 text-center">Customer Reviews</h2>
-            <p className="text-gray-300 mb-12 text-center">
-                Here’s what our satisfied players are saying.
-            </p>
-
+        <section className="py-10 px-6 bg-background text-text">
+            <h2 className="text-4xl font-heading font-bold text-gold DEFAULT mb-4 text-center">Customer Reviews</h2>
+            <p className="text-crystal mb-12 text-center">Here’s what our satisfied players are saying.</p>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={2}
                 spaceBetween={30}
                 pagination={{
                     clickable: true,
@@ -62,25 +59,25 @@ const CustomerReviews = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.2 }}
                             viewport={{ once: true }}
-                            className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 shadow-md hover:scale-105 transition-transform duration-300 text-left mx-2"
+                            className="bg-card bg-opacity-20 backdrop-blur-xl border border-border rounded-2xl p-6 shadow-soft hover:scale-105 transition-transform duration-300 text-left mx-2 grid grid-cols-1"
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <img
                                     src={user.avatar}
                                     alt={`${user.name} avatar`}
-                                    className="h-12 w-12 rounded-full border border-white/30"
+                                    className="h-12 w-12 rounded-full border border-border"
                                 />
                                 <div>
-                                    <p className="font-semibold text-white">{user.name}</p>
-                                    <p className="text-sm text-gray-400">UID: {user.uid}</p>
+                                    <p className="font-semibold text-text">{user.name}</p>
+                                    <p className="text-sm text-crystal">UID: {user.uid}</p>
                                 </div>
                             </div>
                             <div className="flex items-center mb-2">
                                 {[...Array(user.rating)].map((_, i) => (
-                                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                                    <Star key={i} className="w-4 h-4 text-gold DEFAULT fill-gold DEFAULT" />
                                 ))}
                             </div>
-                            <p className="text-gray-200 text-sm italic">“{user.review}”</p>
+                            <p className="text-crystal italic text-sm">“{user.review}”</p>
                         </motion.div>
                     </SwiperSlide>
                 ))}

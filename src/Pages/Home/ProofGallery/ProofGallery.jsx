@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const proofItems = [
     {
@@ -22,19 +23,51 @@ const proofItems = [
     // Add more as needed
 ];
 
-// Optional simple Lightbox modal
 function Lightbox({ image, onClose }) {
     return (
-        <div
-            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 cursor-pointer"
-            onClick={onClose}
-        >
-            <img
-                src={image}
-                alt="Proof enlarged"
-                className="max-h-[90vh] max-w-[90vw] rounded-lg shadow-lg"
-            />
-        </div>
+        <AnimatePresence>
+            {image && (
+                <>
+                    {/* Overlay */}
+                    <motion.div
+                        className="fixed inset-0 bg-black bg-opacity-80 z-50 cursor-pointer"
+                        onClick={onClose}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.8 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    />
+
+                    {/* Image container */}
+                    <motion.div
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                        <div className="relative max-w-4xl max-h-full rounded-2xl overflow-hidden shadow-soft bg-card bg-opacity-90">
+                            {/* Close button */}
+                            <button
+                                onClick={onClose}
+                                className="absolute top-3 right-3 text-gold hover:text-royal-dark text-3xl font-bold z-50 focus:outline-none focus:ring-2 focus:ring-gold rounded"
+                                aria-label="Close lightbox"
+                            >
+                                &times;
+                            </button>
+
+                            {/* Image */}
+                            <img
+                                src={image}
+                                alt="Proof screenshot"
+                                className="max-w-full max-h-[80vh] object-contain rounded-2xl"
+                                loading="lazy"
+                            />
+                        </div>
+                    </motion.div>
+                </>
+            )}
+        </AnimatePresence>
     );
 }
 
@@ -42,9 +75,11 @@ const ProofGallery = () => {
     const [selected, setSelected] = useState(null);
 
     return (
-        <section className="py-20 px-4 bg-transparent text-white max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-gold mb-4 text-center">Proof of Successful Top-Ups</h2>
-            <p className="text-gray-300 mb-12 text-center">
+        <section className="py-10 px-6 bg-background text-text">
+            <h2 className="text-4xl font-heading font-bold text-gold mb-4 text-center">
+                Proof of Successful Top-Ups
+            </h2>
+            <p className="text-crystal mb-12 text-center">
                 Real screenshots showing our verified deliveries and payments.
             </p>
 
@@ -52,8 +87,13 @@ const ProofGallery = () => {
                 {proofItems.map(({ id, title, description, imageUrl }) => (
                     <div
                         key={id}
-                        className="relative cursor-pointer rounded-2xl overflow-hidden bg-white/10 border border-white/20 backdrop-blur-lg shadow-md hover:scale-105 transition-transform duration-300"
+                        role="button"
+                        tabIndex={0}
                         onClick={() => setSelected(imageUrl)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") setSelected(imageUrl);
+                        }}
+                        className="relative cursor-pointer rounded-2xl overflow-hidden bg-card bg-opacity-20 border border-border backdrop-blur-xl shadow-soft hover:scale-105 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-gold"
                     >
                         <img
                             src={imageUrl}
@@ -62,8 +102,8 @@ const ProofGallery = () => {
                             loading="lazy"
                         />
                         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end p-4">
-                            <h3 className="text-white font-semibold text-lg">{title}</h3>
-                            <p className="text-gray-300 text-sm">{description}</p>
+                            <h3 className="text-gold font-semibold text-lg">{title}</h3>
+                            <p className="text-crystal text-sm">{description}</p>
                         </div>
                     </div>
                 ))}
